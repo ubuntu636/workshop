@@ -28,26 +28,7 @@ const admindata=async(req,res)=>{
 }
 
 const hitfunc=(req,res)=>{
-  res.status(200).json({ status: true, msg: "Server Running..." });
+  return res.status(200).send("Server listening..")
+
 }
-const axios = require('axios');
-
-// Function to make the API call
-const hitApiRoute = async () => {
-  try {
-    const response = await axios.get('https://workshop-frgm.onrender.com/api/hit'); // Replace with your actual API endpoint
-    console.log(response.data); // Log the response if needed
-  } catch (error) {
-    console.error('Error hitting API:', error.message);
-  }
-};
-
-// Function to schedule hitting the API route every 2 minutes
-const scheduleHit = () => {
-  // Initially hit the API when starting the script
-  hitApiRoute();
-
-  // Schedule hitting the API every 2 minutes (120000 milliseconds)
-  setInterval(hitApiRoute, 120000);
-};
-module.exports = { createFormData,admindata, hitApiRoute, scheduleHit };
+module.exports = { createFormData,admindata, hitfunc };

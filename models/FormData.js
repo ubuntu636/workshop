@@ -20,6 +20,10 @@ const formDataSchema = new mongoose.Schema({
   year: {
     type: String,
     required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 });
 

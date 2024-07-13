@@ -23,7 +23,10 @@ mongoose.connect(URI, {
   console.error('Error connecting to MongoDB', error);
 });
 
+
+
+
 app.listen(port, () => {
-  setInterval(hitApiRoute, 120000);
+  
   console.log(`Server running on port ${port}`);
 });
