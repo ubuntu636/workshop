@@ -1,0 +1,12 @@
+name: Ping Render App
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # every 5 minutes
+
+jobs:
+  ping-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl request to keep app awake
+        run: curl -I https://workshop-frgm.onrender.com
