@@ -3,12 +3,14 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const formRoutes = require('./routes/formRoutes');
+const { hitApiRoute } = require('./controllers/formController');
 require('dotenv').config()
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(cors());
+
 
 app.use('/api', formRoutes);
 const URI=process.env.URI
@@ -22,5 +24,6 @@ mongoose.connect(URI, {
 });
 
 app.listen(port, () => {
+  setInterval(hitApiRoute, 120000);
   console.log(`Server running on port ${port}`);
 });
